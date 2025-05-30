@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f77d8a7e9330564e9db11d0b4869bde, type: 3}
+  m_Name: ConfigPlaybackDto
+  m_EditorClassIdentifier: Assembly-CSharp::ConfigPlaybackDTO
+  m_cam_url: video=HP HD Camera
+  m_p_audio: 1
+  m_p_video: 1
+  m_p_width: 1280
+  m_p_height: 720
+  m_p_flipX: 0
+  m_p_flipY: 0
+  m_p_emit: 0
+  m_p_options: 
+  m_p_timeout: 10000
+  m_format: dshow

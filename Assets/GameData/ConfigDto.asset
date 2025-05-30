@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07bb1eb4384d1a94595d6702c5607dc8, type: 3}
+  m_Name: ConfigDto
+  m_EditorClassIdentifier: 
+  m_audio: 1
+  m_video: 1
+  m_width: 1280
+  m_height: 720
+  m_flipX: 0
+  m_flipY: 1
+  m_emit: 0
+  m_options: 
+  m_timeout: 10000
+  m_logLevel: 6
+  m_peerName: user2_F4A6a
+  m_ConversionFormat: yuv420p
+  m_Codec: libx264
+  m_Destination: 
+  m_ConfigPath: Harinala03.txt
+  m_StreamName: Harinala03_Stream
+  m_license: 2RGFL5YHGVWPLPQR6D4RNPCXSBUBE529F42FD825
+  m_token: 
