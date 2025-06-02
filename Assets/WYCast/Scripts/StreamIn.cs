@@ -15,16 +15,6 @@ public class StreamIn
     private bool m_video = true;
     private long m_startTime = -1;
 
-    /// <summary>
-    /// Init video and audio parameters
-    /// </summary>
-    /// <param name="t_URL"></param>
-    /// <param name="t_audio"></param>
-    /// <param name="t_video"></param>
-    /// <param name="t_timeout"></param>
-    /// <param name="t_format"></param>
-    /// <param name="t_options"></param>
-    /// <returns>true if all is OK</returns>
     public bool Init(string t_URL, bool t_audio = true, bool t_video = true, uint t_timeout = 10000, string t_format = "", string t_options = "")
     {
         Destroy();
@@ -65,20 +55,11 @@ public class StreamIn
         return false;
     }
 
-    /// <summary>
-    /// Set playback delay to synchronize video and audio
-    /// </summary>
-    /// <param name="t_delay"></param>
     public void SetDelay(int t_delay)
     {
         m_startTime = WYCast.GetTimeNow(t_delay);
     }
 
-    /// <summary>
-    /// Set audio clip
-    /// </summary>
-    /// <param name="t_convert"></param>
-    /// <returns>true if all is OK</returns>
     public bool SetAudioClip(AudioConvert t_convert)
     {
         if (m_streamId < 0 || m_audio == false)
@@ -106,12 +87,6 @@ public class StreamIn
         return false;
     }
 
-    /// <summary>
-    /// Add video to a texture
-    /// </summary>
-    /// <param name="t_texturePtr"></param>
-    /// <param name="t_convert"></param>
-    /// <returns>true if all is OK</returns>
     public bool SetTexture(System.IntPtr t_texturePtr, VideoConvert t_convert)
     {
         if (m_streamId < 0 || m_video == false)
@@ -139,9 +114,6 @@ public class StreamIn
         return false;
     }
 
-    /// <summary>
-    /// Clear audio clip
-    /// </summary>
     public void RemoveAudioClip()
     {
         if (m_audioConverterId >= 0)
@@ -157,9 +129,6 @@ public class StreamIn
         //    m_startTime = -1;
     }
 
-    /// <summary>
-    /// Clear texture
-    /// </summary>
     public void RemoveTexture()
     {
         if (m_videoConverterId >= 0)
@@ -175,10 +144,6 @@ public class StreamIn
         //    m_startTime = -1;
     }
 
-    /// <summary>
-    /// Read audio
-    /// </summary>
-    /// <param name="t_data"></param>
     public void ReadAudio(ref float[] t_data)
     {
         GCHandle handle = GCHandle.Alloc(t_data, GCHandleType.Pinned);
@@ -186,27 +151,16 @@ public class StreamIn
         handle.Free();
     }
 
-    /// <summary>
-    /// Render video
-    /// </summary>
     public void RenderVideo()
     {
         GL.IssuePluginEvent(WYCast.RenderNextVideoFrame(), m_textureId);
     }
 
-    /// <summary>
-    /// Audio verification
-    /// </summary>
-    /// <returns></returns>
     public bool IsAudioReady()
     {
         return m_audio && m_audioConverterId >= 0 && m_audioClipId >= 0;
     }
 
-    /// <summary>
-    /// Video verification
-    /// </summary>
-    /// <returns></returns>
     public bool IsVideoReady()
     {
         return m_video && m_videoConverterId >= 0 && m_textureId >= 0;

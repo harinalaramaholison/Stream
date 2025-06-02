@@ -44,17 +44,17 @@ public class Playback : MonoBehaviour
    private void Awake()
    {
       WYCast.Load();
+      WYCast.SetLogLevelforTrace(6);
       WYCast.EnableLogging(true);
       WYCast.InitLogVariable();
       WYCast.WriteLogToFile(true);
+
    }
    void Start()
     {
-        //Create StreamIn 
         m_stream = new StreamIn();
         m_stream.SetDelay(DELAY);
 
-        // Init StreamIn
         if (m_stream.Init(configPlaybakcDto.m_cam_url, configPlaybakcDto.m_p_audio, configPlaybakcDto.m_p_video, configPlaybakcDto.m_p_timeout, configPlaybakcDto.m_format, configPlaybakcDto.m_p_options))
         {
             if (configPlaybakcDto.m_p_audio)
@@ -65,7 +65,6 @@ public class Playback : MonoBehaviour
                 aConvert.Samplerate = DEFAULT_AUDIO_FORMAT.sampleRate;
                 aConvert.Samples = DEFAULT_AUDIO_FORMAT.samples;
 
-                // Set audio Clip
                 if (m_stream.SetAudioClip(aConvert))
                     m_audioSource = gameObject.AddComponent<AudioSource>();
             }
@@ -79,7 +78,6 @@ public class Playback : MonoBehaviour
                 vConvert.Width = configPlaybakcDto.m_p_width;
                 vConvert.Height = configPlaybakcDto.m_p_height;
 
-                // Set Texture
                 if (m_stream.SetTexture(texture.GetNativeTexturePtr(), vConvert))
                 {
                     Renderer renderer = gameObject.GetComponent<Renderer>();
@@ -98,7 +96,6 @@ public class Playback : MonoBehaviour
             }
         }
 
-        //Audio and video verification
         if (m_stream.IsAudioReady())
             StartCoroutine(AudioStart()); //Start together with video at WaitForEndOfFrame().
 
